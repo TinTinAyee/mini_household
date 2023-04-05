@@ -1,0 +1,11 @@
+DirectoryIndex index.php index.html
+Options +FollowSymLinks
+RewriteEngine on
+
+# If the request is a file, folder or symlink that exists, serve it up
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# otherwise, serve your index.html app
+RewriteRule ^(.+)$ index.php [L]
